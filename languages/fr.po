@@ -1,0 +1,492 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Project-Id-Version: WooYellowCube\n"
+"POT-Creation-Date: 2016-07-08 09:56+0200\n"
+"PO-Revision-Date: 2016-07-08 10:11+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: index.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"Last-Translator: \n"
+"Language: fr\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: index.php:158
+msgid "Your order has been shipped"
+msgstr "Votre commande a été expédiée"
+
+#: index.php:282
+msgid "Order track & trace"
+msgstr "Track & Trace de la commande"
+
+#: index.php:295
+msgid "Shipping"
+msgstr "Livraison"
+
+#: index.php:298
+msgid "Activities logs"
+msgstr "Logs d’activités"
+
+#: index.php:301
+msgid "Stock"
+msgstr "Gestion du stock"
+
+#: index.php:303
+msgid "Stock details"
+msgstr "Détails du stock"
+
+#: index.php:306
+msgid "Need help ?"
+msgstr "Besoin d’aide ?"
+
+#: index.php:365
+msgid "Shipping informations has been updated"
+msgstr "Les informations de livraison ont été modifiées"
+
+#: index.php:541 index.php:564 views/menu-logs.php:48
+#: views/metabox-order.php:17 views/metabox-order.php:30
+#: views/metabox-product.php:17 views/metabox-product.php:30
+#: views/metabox-product.php:128
+msgid "Error"
+msgstr "Erreur"
+
+#: index.php:542 index.php:565 views/metabox-order.php:18
+#: views/metabox-order.php:31 views/metabox-product.php:18
+#: views/metabox-product.php:31 views/metabox-product.php:129
+msgid "Pending"
+msgstr "En cours"
+
+#: index.php:543 index.php:566 views/menu-logs.php:49
+#: views/metabox-order.php:19 views/metabox-order.php:32
+#: views/metabox-product.php:19 views/metabox-product.php:32
+#: views/metabox-product.php:130
+msgid "Success"
+msgstr "Réussi"
+
+#: index.php:547 index.php:570
+msgid "Unlink"
+msgstr "Non lié"
+
+#: index.php:1040
+msgid "Please see YellowCube instructions"
+msgstr "Veuillez voir les instructions de YellowCube"
+
+#: views/menu-help.php:1
+msgid "WooYellowCube Support"
+msgstr "Support WooYellowCube"
+
+#: views/menu-help.php:2
+msgid "We thank you for using our WooCommerce extension."
+msgstr "Nous vous remercions d’utiliser l’extension WooCommerce"
+
+#: views/menu-help.php:3
+msgid ""
+"If you need any support please contact us on our website <a href=\"http://"
+"www.wooyellowcube.com\" title=\"WooYellowCube\" target=\"_blank\">www."
+"wooyellowcube.com</a>"
+msgstr ""
+"Pour toutes questions, contactez nous sur notre site Internet <a href="
+"\"http://www.wooyellowcube.com\" title=\"WooYellowCube\" target=\"_blank"
+"\">www.wooyellowcube.com</a>"
+
+#: views/menu-logs.php:14
+msgid "WooYellowCube Activity logs"
+msgstr "Logs d’activités WooYellowCube"
+
+#: views/menu-logs.php:15
+msgid ""
+"If you have any question about the error displayed, please contact us on our "
+"website <a href=\"http://www.wooyellowcube.com\" title=\"WooYellowCube\" "
+"target=\"_blank\">www.wooyellowcube.com</a>"
+msgstr ""
+"Si vous avez une question sur l’erreur affichée, contactez-nous via notre "
+"site Internet <a href=\"http://www.wooyellowcube.com\" title=\"WooYellowCube"
+"\" target=\"_blank\">www.wooyellowcube.com</a>"
+
+#: views/menu-logs.php:32
+msgid "Date"
+msgstr "Date"
+
+#: views/menu-logs.php:33
+msgid "Reference"
+msgstr "Référence"
+
+#: views/menu-logs.php:34
+msgid "Action"
+msgstr "Action"
+
+#: views/menu-logs.php:35
+msgid "Order / Product"
+msgstr "Commande / Produit"
+
+#: views/menu-logs.php:36 views/metabox-order.php:38
+#: views/metabox-product.php:36
+msgid "Message"
+msgstr "Message"
+
+#. Plugin Name of the plugin/theme
+#: views/menu-settings.php:1 views/menu-stock.php:30 views/notice-update.php:2
+msgid "WooYellowCube"
+msgstr "WooYellowCube"
+
+#: views/menu-settings.php:5
+msgid "Personal informations"
+msgstr "Informations personnelles"
+
+#: views/menu-settings.php:9
+msgid "Sender"
+msgstr "Sender (expéditeur)"
+
+#: views/menu-settings.php:15
+msgid "Receiver"
+msgstr "Receiver (récepteur)"
+
+#: views/menu-settings.php:21
+msgid "DepositorNo"
+msgstr "DepositorNo"
+
+#: views/menu-settings.php:27
+msgid "PartnerNo"
+msgstr "PartnerNo"
+
+#: views/menu-settings.php:33
+msgid "Plant"
+msgstr "Plant"
+
+#: views/menu-settings.php:39
+msgid "Technical informations"
+msgstr "Informations techniques"
+
+#: views/menu-settings.php:42
+msgid "SOAP url"
+msgstr "Adresse SOAP"
+
+#: views/menu-settings.php:52
+msgid "Operating mode"
+msgstr "Mode opérationnel"
+
+#: views/menu-settings.php:62
+msgid "Authentification"
+msgstr "Système d’authentification"
+
+#: views/menu-settings.php:70
+msgid "Authentification file"
+msgstr "Fichier d’authentification"
+
+#: views/menu-settings.php:74
+msgid "Email notification"
+msgstr "Notification par email"
+
+#: views/menu-settings.php:78
+msgid "Email"
+msgstr "Email"
+
+#: views/menu-settings.php:82 views/menu-settings.php:86
+msgid "Activation"
+msgstr "Activation"
+
+#: views/menu-settings.php:88
+msgid "No"
+msgstr "Non"
+
+#: views/menu-settings.php:89
+msgid "Yes"
+msgstr "Oui"
+
+#: views/menu-settings.php:93 views/menu-settings.php:95
+#: views/metabox-product.php:24 views/metabox-product.php:48
+#: views/metabox-product.php:64
+msgid "Lot management"
+msgstr "Lot management"
+
+#: views/menu-settings.php:97
+msgid "Desactivated"
+msgstr "Désactivé"
+
+#: views/menu-settings.php:98
+msgid "Activated"
+msgstr "Activé"
+
+#: views/menu-settings.php:102
+msgid "Logs"
+msgstr "Logs"
+
+#: views/menu-settings.php:104
+msgid "Day before logs are removed from database"
+msgstr "Jours avant que les logs soient supprimés de la base de données"
+
+#: views/menu-settings.php:110
+msgid "Save informations"
+msgstr "Sauver les informations"
+
+#: views/menu-shipping.php:1
+msgid "Shipping management"
+msgstr "Gestion des moyens de livraisons"
+
+#: views/menu-shipping.php:10
+msgid "Allowed shipping methods"
+msgstr "Moyens de livraisons autorisés"
+
+#: views/menu-shipping.php:11
+msgid "Only one parameter by Service can be used"
+msgstr "Seulement un paramètre peut être utilisé"
+
+#: views/menu-shipping.php:23
+msgid "Shipping method"
+msgstr "Système de livraison"
+
+#: views/menu-shipping.php:24
+msgid "Shipping method ID"
+msgstr "Identifiant du système de livraison"
+
+#: views/menu-shipping.php:48
+msgid "Save shipping informations"
+msgstr "Sauver les informations de livraison"
+
+#: views/menu-stock-view.php:13
+msgid "Go back to stock"
+msgstr "Retourner au stock"
+
+#: views/menu-stock-view.php:19 views/metabox-order.php:50
+msgid "Lot"
+msgstr "Lot"
+
+#: views/menu-stock-view.php:20 views/metabox-order.php:51
+msgid "Quantity"
+msgstr "Quantité"
+
+#: views/menu-stock-view.php:21
+msgid "Expiration date"
+msgstr "Date d’expiration"
+
+#: views/menu-stock-view.php:35
+msgid "There is no lots on this product"
+msgstr "Il n’y a pas de lot pour ce produit"
+
+#: views/menu-stock.php:30
+msgid "Stock management"
+msgstr "Gestion du stock"
+
+#: views/menu-stock.php:33
+msgid "No stock found in YellowCube"
+msgstr "Pas de stock trouvé dans YellowCube"
+
+#: views/menu-stock.php:38
+msgid "Bulking ART update applied"
+msgstr "Demande ART en masse effectuée"
+
+#: views/menu-stock.php:40
+msgid "Bulking WooCommerce stock change applied"
+msgstr "Demande de changement du stock WooCommerce en masse effectuée"
+
+#: views/menu-stock.php:47
+msgid "Product name (SKU)"
+msgstr "Nom du produit (SKU)"
+
+#: views/menu-stock.php:48
+msgid "WooCommerce stock"
+msgstr "Stock WooCommerce"
+
+#: views/menu-stock.php:49
+msgid "YellowCube stock"
+msgstr "Stock YellowCube"
+
+#: views/menu-stock.php:50
+msgid "YellowCube date"
+msgstr "Date (depuis YellowCube)"
+
+#: views/menu-stock.php:51
+msgid "Shop & YellowCube Stock Similarity"
+msgstr "Similarité (Shop et YellowCube)"
+
+#: views/menu-stock.php:77
+msgid "Same stock"
+msgstr "Même stock"
+
+#: views/menu-stock.php:79
+msgid "Different stock"
+msgstr "Stock différent"
+
+#: views/menu-stock.php:82
+msgid "Product not in WooCommerce"
+msgstr "Ce produit n’est pas dans WooCommerce"
+
+#: views/menu-stock.php:88
+msgid "View lots"
+msgstr "Voir les lots"
+
+#: views/menu-stock.php:102
+msgid "Action on selected products"
+msgstr "Action sur les produits séléctionnés"
+
+#: views/menu-stock.php:105
+msgid "Send ART profile"
+msgstr "Envoyer le profil ART"
+
+#: views/menu-stock.php:106
+msgid "Update WooCommerce Stock with YellowCube"
+msgstr "Mettre à jour le stock WooCommerce avec YellowCube"
+
+#: views/menu-stock.php:107
+msgid "Force to refresh inventory"
+msgstr "Forcer le rafraîchissement de l’inventaire"
+
+#: views/menu-stock.php:111
+msgid "Execute"
+msgstr "Exécuter"
+
+#: views/menu-stock.php:119 views/menu-stock.php:124
+msgid "Next entries"
+msgstr "Prochaine entrées"
+
+#: views/menu-stock.php:121 views/menu-stock.php:123
+msgid "Previous entries"
+msgstr "Entrées précédentes"
+
+#: views/metabox-order.php:14 views/metabox-product.php:14
+msgid "Current status"
+msgstr "Status actuel"
+
+#: views/metabox-order.php:23 views/metabox-product.php:22
+msgid "Refresh status"
+msgstr "Rafraîchir le status"
+
+#: views/metabox-order.php:27 views/metabox-product.php:27
+#: views/metabox-product.php:98
+msgid "Status"
+msgstr "Status"
+
+#: views/metabox-order.php:46
+msgid "Lot management for this order"
+msgstr "Lot management de cette commande"
+
+#: views/metabox-order.php:49
+msgid "ArticleNo"
+msgstr "ArticleNo"
+
+#: views/metabox-order.php:68
+msgid "Track & trace"
+msgstr "Track & Trace"
+
+#: views/metabox-order.php:70
+msgid "The track & trace is not ready yet, please come back later"
+msgstr "Le Track & Trace n’est pas prêt, veuillez revenir plus tard"
+
+#: views/metabox-order.php:82
+msgid "Try again to send this order to YellowCube"
+msgstr "Renvoyer cette commande à YellowCube"
+
+#: views/metabox-order.php:83 views/metabox-order.php:93
+msgid "Please save your order informations before to send to YellowCube."
+msgstr "Veuillez sauvegarder les informations avant d’envoyer à YellowCube"
+
+#: views/metabox-order.php:84 views/metabox-order.php:94
+msgid "Send order to YellowCube"
+msgstr "Envoyer la commande à YellowCube"
+
+#: views/metabox-order.php:92
+msgid "Send this order to Yellowcube"
+msgstr "Envoyer la commande à YellowCube"
+
+#: views/metabox-product.php:24 views/metabox-product.php:51
+#: views/metabox-product.php:67
+msgid "Enable"
+msgstr "Activer"
+
+#: views/metabox-product.php:24 views/metabox-product.php:50
+#: views/metabox-product.php:66
+msgid "Disable"
+msgstr "Désactiver"
+
+#: views/metabox-product.php:45
+msgid "Send this product to YellowCube"
+msgstr "Envoyer la commande à YellowCube"
+
+#: views/metabox-product.php:46 views/metabox-product.php:62
+msgid "Please save your product information before to send to YellowCube."
+msgstr "Veuillez sauvegarder les informations avant d’envoyer à YellowCube"
+
+#: views/metabox-product.php:54
+msgid "Send product to YellowCube"
+msgstr "Envoyer la commande à YellowCube"
+
+#: views/metabox-product.php:61
+msgid "Update YellowCube informations"
+msgstr "Mettre à jour les informations YellowCube"
+
+#: views/metabox-product.php:70
+msgid "Update product to YellowCube"
+msgstr "Mettre à jour le produit chez YellowCube"
+
+#: views/metabox-product.php:75 views/metabox-product.php:77
+msgid "Remove this product from YellowCube"
+msgstr "Désactiver le produit chez YellowCube"
+
+#: views/metabox-product.php:76
+msgid "Your product will be desactivated in YellowCube"
+msgstr "Le produit va être désactivé chez YellowCube"
+
+#: views/metabox-product.php:90
+msgid "Manage variations ART"
+msgstr "Gestion des variations ART"
+
+#: views/metabox-product.php:91
+msgid ""
+"<strong>Information :</strong> Your product with variations need to be save "
+"before"
+msgstr ""
+"<strong>Information :</strong> Votre produit contenant les variations doit "
+"être sauvegardé avant"
+
+#: views/metabox-product.php:96
+msgid "Variation SKU"
+msgstr "Variation SKU"
+
+#: views/metabox-product.php:97
+msgid "Actions"
+msgstr "Actions"
+
+#: views/metabox-product.php:114
+msgid "Update"
+msgstr "Mettre à jour"
+
+#: views/metabox-product.php:117
+msgid "Desactivate"
+msgstr "Désactiver"
+
+#: views/metabox-product.php:120
+msgid "Insert"
+msgstr "Insérer"
+
+#: views/metabox-product.php:134
+msgid "Not linked"
+msgstr "Non-lié"
+
+#: views/notice-update.php:3
+msgid "A new update is available for the WooYellowCube extension"
+msgstr "Une nouvelle mise à jour et disponible pour l’extension WooYellowCube"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.wooyellowcube.com"
+msgstr "http://www.wooyellowcube.com"
+
+#. Description of the plugin/theme
+msgid "WooCommerce synchronization with YellowCube"
+msgstr "Synchronization WooCommerce avec YellowCube"
+
+#. Author of the plugin/theme
+msgid "MDMweb Sàrl"
+msgstr "MDMweb Sàrl"
+
+#. Author URI of the plugin/theme
+msgid "http://www.mdmweb.ch"
+msgstr "http://www.mdmweb.ch"

@@ -1,0 +1,39 @@
+{
+    "name": "swisspost-yellowcube/yellowcube-php",
+    "description": "Connect to the SOAP based YellowCube Solutions.",
+    "license": ["MIT", "GPL-2.0+"],
+    "authors": [
+        {
+            "name": "Liip AG",
+            "email": "info@liip.ch"
+        },
+        {
+            "name": "Adrian Philipp",
+            "email": "adrian.philipp@liip.ch"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "YellowCube\\": "./src/YellowCube/"
+        }
+    },
+    "require": {
+        "ext-soap": "*",
+        "php": ">=5.3",
+        "beberlei/assert": "~2.0",
+        "course-hero/wse-php": "~2.0",
+        "psr/log": "~1.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0",
+        "mikey179/vfsStream": "~1.4"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

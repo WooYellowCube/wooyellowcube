@@ -1,0 +1,41 @@
+
+.wooyellowcube-overflow{
+  overflow: hidden;
+}
+
+.wooyellowcube-inline{
+  width: 40%;
+  display: inline;
+  float: left;
+}
+
+.wooyellowcube-right{
+  float: right;
+  display: inline;
+}
+
+.wooyellowcube-stock-match{
+	font-weight: bold;
+	color: #1BC757;
+}
+
+.wooyellowcube-stock-unmatch{
+	font-weight: bold;
+	color: #DB2626;
+}
+
+.sorting::after, .sorting_asc::after, .sorting_desc::after{
+	content: '' !important;
+}
+
+.pagination a{ color: #333; text-decoration: none;}
+
+.pagination li.active a{ font-weight: bold; }
+
+.pagination li a:hover{
+	background: none !important;
+}
+
+.pagination li:hover{
+	background: none !important;
+}

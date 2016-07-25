@@ -1,0 +1,203 @@
+[
+    {
+        "name": "psr/log",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+            "shasum": ""
+        },
+        "time": "2012-12-21 11:40:51",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Psr\\Log\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    },
+    {
+        "name": "course-hero/wse-php",
+        "version": "2.0.5",
+        "version_normalized": "2.0.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/course-hero/wse-php.git",
+            "reference": "31eb5b44b4365e8701b95bf920751e1dea15fea4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/course-hero/wse-php/zipball/31eb5b44b4365e8701b95bf920751e1dea15fea4",
+            "reference": "31eb5b44b4365e8701b95bf920751e1dea15fea4",
+            "shasum": ""
+        },
+        "require": {
+            "ext-soap": "*",
+            "php": ">= 5.2.3"
+        },
+        "time": "2015-05-19 14:22:19",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Wse": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD"
+        ],
+        "authors": [
+            {
+                "name": "Chris Verges",
+                "email": "cverges@coursehero.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Rob Richards",
+                "email": "rrichards@ctindustries.net",
+                "role": "Developer"
+            }
+        ],
+        "description": "Libraries for adding WS-* support to ext/soap in PHP",
+        "homepage": "http://github.com/course-hero/wse-php",
+        "keywords": [
+            "soap",
+            "wse"
+        ]
+    },
+    {
+        "name": "beberlei/assert",
+        "version": "v2.4",
+        "version_normalized": "2.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/beberlei/assert.git",
+            "reference": "7281b1fd8118b31cb9162c2fb5a4cc6f01d62ed6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/beberlei/assert/zipball/7281b1fd8118b31cb9162c2fb5a4cc6f01d62ed6",
+            "reference": "7281b1fd8118b31cb9162c2fb5a4cc6f01d62ed6",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mbstring": "*",
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "@stable"
+        },
+        "time": "2015-08-21 16:50:17",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Assert": "lib/"
+            },
+            "files": [
+                "lib/Assert/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-2-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            }
+        ],
+        "description": "Thin assertion library for input validation in business models.",
+        "keywords": [
+            "assert",
+            "assertion",
+            "validation"
+        ]
+    },
+    {
+        "name": "swisspost-yellowcube/yellowcube-php",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/swisspost-yellowcube/yellowcube-php.git",
+            "reference": "930adc936b524114d282e7bc139448ea05493057"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/swisspost-yellowcube/yellowcube-php/zipball/930adc936b524114d282e7bc139448ea05493057",
+            "reference": "930adc936b524114d282e7bc139448ea05493057",
+            "shasum": ""
+        },
+        "require": {
+            "beberlei/assert": "~2.0",
+            "course-hero/wse-php": "~2.0",
+            "ext-soap": "*",
+            "php": ">=5.3",
+            "psr/log": "~1.0"
+        },
+        "require-dev": {
+            "mikey179/vfsstream": "~1.4",
+            "phpspec/phpspec": "~2.0"
+        },
+        "time": "2015-05-12 09:57:57",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "YellowCube\\": "./src/YellowCube/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT",
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Adrian Philipp",
+                "email": "adrian.philipp@liip.ch"
+            },
+            {
+                "name": "Liip AG",
+                "email": "info@liip.ch"
+            }
+        ],
+        "description": "Connect to the SOAP based YellowCube Solutions."
+    }
+]

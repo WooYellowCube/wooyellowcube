@@ -1,0 +1,5 @@
+{
+    "require": {
+        "swisspost-yellowcube/yellowcube-php": "^2.0"
+    }
+}
