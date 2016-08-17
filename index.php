@@ -3,7 +3,7 @@
 * Plugin Name: WooYellowCube
 * Plugin URI: http://www.wooyellowcube.com
 * Description: WooCommerce synchronization with YellowCube
-* Version: 2.3
+* Version: 2.3V1
 */
 
 // YellowCube API namespaces
@@ -68,6 +68,7 @@ class WooYellowCube
       return false;
     }
 
+    return true;
   }
 
   public function languages() {
@@ -97,6 +98,7 @@ class WooYellowCube
     // YellowCube API instanciation
     try {
       $this->yellowcube = new YellowCube\Service($soap_config);
+      return true;
     } catch(Exception $e){
       return false;
     }
