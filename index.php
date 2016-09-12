@@ -39,7 +39,7 @@ class WooYellowCube
 
   public $yellowcube;
   public $defaultLanguage = 'en';
-  public $defaultWSDL = 'https://aservice-test.swisspost.ch/apache/yellowcube-test/?wsdl';
+  public $defaultWSDL = 'https://service-test.swisspost.ch/apache/yellowcube-test/?wsdl';
 
   public function __construct() {
 
