@@ -11,8 +11,8 @@
 	});
 </script>
 
-<h1><?=__('WooYellowCube Activity logs', 'wooyellowcube')?></h1>
-<p><?=__('If you have any question about the error displayed, please contact us on our website <a href="http://www.wooyellowcube.com" title="WooYellowCube" target="_blank">www.wooyellowcube.com</a>', 'wooyellowcube')?></p>
+<h1><?php _e('WooYellowCube Activity logs', 'wooyellowcube'); ?></h1>
+<p><?php _e('If you have any question about the error displayed, please contact us on our website <a href="http://www.wooyellowcube.com" title="WooYellowCube" target="_blank">www.wooyellowcube.com</a>', 'wooyellowcube'); ?></p>
 
 <hr />
 
@@ -29,26 +29,26 @@ if(count($yellowcube_activities) == 0): ?>
 <table class="wp-list-table widefat fixed striped datatable ">
   <thead>
     <tr>
-      <th width="10%"><?=__('Date', 'wooyellowcube')?></th>
-      <th width="10%"><?=__('Reference', 'wooyellowcube')?></th>
-      <th width="15%"><?=__('Action', 'wooyellowcube')?></th>
-      <th width="10%"><?=__('Order / Product', 'wooyellowcube')?></th>
-      <th><?=__('Message', 'wooyellowcube')?></th>
+      <th width="10%"><?php _e('Date', 'wooyellowcube'); ?></th>
+      <th width="10%"><?php _e('Reference', 'wooyellowcube'); ?></th>
+      <th width="15%"><?php _e('Action', 'wooyellowcube'); ?></th>
+      <th width="10%"><?php _e('Order / Product', 'wooyellowcube'); ?></th>
+      <th><?php _e('Message', 'wooyellowcube'); ?></th>
     </tr>
   </thead>
   <tbody>
     <?php foreach($yellowcube_activities as $activity): ?>
       <tr>
-        <td><?=date('Y/m/d H:i', $activity->created_at)?></td>
-        <td><?=$activity->reference?></td>
-        <td><?=$activity->type?></td>
-        <td>#<?=$activity->object?></td>
+        <td><?php echo date('Y/m/d H:i', $activity->created_at); ?></td>
+        <td><?php echo $activity->reference; ?></td>
+        <td><?php echo $activity->type; ?></td>
+        <td>#<?php echo $activity->object; ?></td>
         <td>
           <?php switch($activity->response){
             case 0: echo '<img src="'.plugin_dir_url('').'wooyellowcube/assets/images/yc-error.png" alt="'.__('Error', 'wooyellowcube').'" />'; break;
             case 1: echo '<img src="'.plugin_dir_url('').'wooyellowcube/assets/images/yc-success.png" alt="'.__('Success', 'wooyellowcube').'" />'; break;
           } ?>
-          <?=$activity->message?>
+          <?php echo $activity->message; ?>
         </td>
       </tr>
     <?php endforeach; ?>

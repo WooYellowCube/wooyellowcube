@@ -27,28 +27,28 @@ $stocks = $wpdb->get_results('SELECT * FROM wooyellowcube_stock GROUP BY yellowc
 
 ?>
 
-<h1><?=__('WooYellowCube', 'wooyellowcube')?> - <?=__('Stock management', 'wooyellowcube')?></h1>
+<h1><?php _e('WooYellowCube', 'wooyellowcube'); ?> - <?php _e('Stock management', 'wooyellowcube');?></h1>
 <?php if(count($stocks) == 0): ?>
 
-  <p><?=__('No stock found in YellowCube', 'wooyellowcube')?></p>
+  <p><?php _e('No stock found in YellowCube', 'wooyellowcube');?></p>
 
 <?php else: ?>
 
 <?php if($status === 1): ?>
-<p><?=__('Bulking ART update applied', 'wooyellowcube')?></p>
+<p><?php _e('Bulking ART update applied', 'wooyellowcube'); ?></p>
 <?php elseif($status === 2): ?>
-<p><?=__('Bulking WooCommerce stock change applied', 'wooyellowcube')?></p>
+<p><?php _e('Bulking WooCommerce stock change applied', 'wooyellowcube'); ?></p>
 <?php endif; ?>
 
 <form action="" method="post">
   <table class="wp-list-table widefat fixed striped pages">
     <thead>
       <tr>
-        <th><strong><?=__('Product name (SKU)', 'wooyellowcube')?></strong></th>
-        <th><strong><?=__('WooCommerce stock', 'wooyellowcube')?></strong></th>
-        <th><strong><?=__('YellowCube stock', 'wooyellowcube')?></strong></th>
-        <th><strong><?=__('YellowCube date', 'wooyellowcube')?></strong></th>
-        <th><strong><?=__('Shop & YellowCube Stock Similarity', 'wooyellowcube')?></strong></th>
+        <th><strong><?php _e('Product name (SKU)', 'wooyellowcube'); ?></strong></th>
+        <th><strong><?php _e('WooCommerce stock', 'wooyellowcube'); ?></strong></th>
+        <th><strong><?php _e('YellowCube stock', 'wooyellowcube'); ?></strong></th>
+        <th><strong><?php _e('YellowCube date', 'wooyellowcube'); ?></strong></th>
+        <th><strong><?php _e('Shop & YellowCube Stock Similarity', 'wooyellowcube'); ?></strong></th>
         <?php if(get_option('wooyellowcube_lotmanagement') == 1): ?><th></th><?php endif; ?>
       </tr>
     </thead>
@@ -60,32 +60,32 @@ $stocks = $wpdb->get_results('SELECT * FROM wooyellowcube_stock GROUP BY yellowc
 	     $woocommerce_stock = (isset($product)) ? $product->get_stock_quantity() : false;
 	   ?>
       <tr>
-        <td><input type="checkbox" name="products[]" value="<?=$stock->product_id?>" /> <?=$stock->yellowcube_articleno?></td>
-        <td><?=$woocommerce_stock?></td>
+        <td><input type="checkbox" name="products[]" value="<?php echo $stock->product_id?>" /> <?php echo $stock->yellowcube_articleno?></td>
+        <td><?php echo $woocommerce_stock?></td>
         <td>
 	        <?php
 			  $yellowcube_stock = $wpdb->get_var('SELECT SUM(yellowcube_stock) FROM wooyellowcube_stock WHERE product_id='.$stock->product_id);
 		     ?>
-			  <?=$yellowcube_stock?>
+			  <?php echo $yellowcube_stock?>
 
 	     </td>
-        <td><?=date('d/m/Y H:i', $stock->yellowcube_date)?></td>
+        <td><?php echo date('d/m/Y H:i', $stock->yellowcube_date)?></td>
 
         <td>
 	       <?php if(!empty($product->post)): ?>
 	          <?php if($yellowcube_stock == $woocommerce_stock): ?>
-	          <span style="color: #14972B;"><strong><?=__('Same stock', 'wooyellowcube')?></strong></span>
+	          <span style="color: #14972B;"><strong><?php _e('Same stock', 'wooyellowcube'); ?></strong></span>
 	          <?php else: ?>
-	          <span style="color: #CE1A1A;"><strong><?=__('Different stock', 'wooyellowcube')?></strong></span>
+	          <span style="color: #CE1A1A;"><strong><?php _e('Different stock', 'wooyellowcube'); ?></strong></span>
 	          <?php endif; ?>
           <?php else: ?>
-          <span><?=__('Product not in WooCommerce', 'wooyellowcube')?></span>
+          <span><?php _e('Product not in WooCommerce', 'wooyellowcube'); ?></span>
           <?php endif; ?>
         </td>
         <?php if(get_option('wooyellowcube_lotmanagement') == 1): ?>
         <td>
 	        <?php if(!empty($stock->product_id)): ?>
-	        <a href="admin.php?page=wooyellowcube-stock-view&id=<?=$stock->product_id?>"><?=__('View lots', 'wooyellowcube')?></a>
+	        <a href="admin.php?page=wooyellowcube-stock-view&id=<?php echo $stock->product_id?>"><?php _e('View lots', 'wooyellowcube'); ?></a>
 	        <?php endif; ?>
 	    </td>
 	    <?php endif; ?>
@@ -99,16 +99,16 @@ $stocks = $wpdb->get_results('SELECT * FROM wooyellowcube_stock GROUP BY yellowc
 
 	<div class="bulking-actions">
 		<p>
-			<strong><?=__('Action on selected products', 'wooyellowcube')?></strong>
+			<strong><?php _e('Action on selected products', 'wooyellowcube'); ?></strong>
 			<br />
 			<select name="bulking_actions" id="bulking_actions">
-				<option value="1"><?=__('Send ART profile', 'wooyellowcube')?></option>
-				<option value="2"><?=__('Update WooCommerce Stock with YellowCube', 'wooyellowcube')?></option>
-				<option value="3"><?=__('Force to refresh inventory', 'wooyellowcube')?></option>
+				<option value="1"><?php _e('Send ART profile', 'wooyellowcube'); ?></option>
+				<option value="2"><?php _e('Update WooCommerce Stock with YellowCube', 'wooyellowcube'); ?></option>
+				<option value="3"><?php _e('Force to refresh inventory', 'wooyellowcube'); ?></option>
 			</select>
 		</p>
 		<p>
-			<input type="submit" name="bulking_execute" id="bulking_execute" value="<?=__('Execute', 'wooyellowcube')?>" class="button" />
+			<input type="submit" name="bulking_execute" id="bulking_execute" value="<?php _e('Execute', 'wooyellowcube'); ?>" class="button" />
 		</p>
 	</div>
 

@@ -5,13 +5,13 @@ $yellowcube_order = $wpdb->get_row('SELECT * FROM wooyellowcube_orders WHERE id_
 ?>
 
 <!-- Order identification -->
-<input type="hidden" name="wooyellowcube-order-id" id="wooyellowcube-order-id" value="<?=$post->ID?>" />
+<input type="hidden" name="wooyellowcube-order-id" id="wooyellowcube-order-id" value="<?php echo $post->ID?>" />
 
 <?php if($yellowcube_order): ?>
 <!-- Current status -->
 <div>
 
-  <h3><?=__('Current status', 'wooyellowcube')?></h3>
+  <h3><?php _e('Current status', 'wooyellowcube'); ?></h3>
 	<?php
 	switch($yellowcube_order->yc_response){
 	    case 0: echo '<img src="'.plugin_dir_url('').'wooyellowcube/assets/images/yc-error.png" alt="'.__('Error', 'wooyellowcube').'" />'; break;
@@ -20,11 +20,11 @@ $yellowcube_order = $wpdb->get_row('SELECT * FROM wooyellowcube_orders WHERE id_
 	}
 	?>
   <p>
-    <a href="#" onclick="return false;" id="wooyellowcube-order-refresh" class="button"><i class="fa fa-refresh"></i> <?=__('Refresh status', 'wooyellowcube')?></a>
+    <a href="#" onclick="return false;" id="wooyellowcube-order-refresh" class="button"><i class="fa fa-refresh"></i> <?php _e('Refresh status', 'wooyellowcube'); ?></a>
   </p>
 
   <p>
-    <strong><?=__('Status', 'wooyellowcube')?> : </strong>
+    <strong><?php _e('Status', 'wooyellowcube'); ?> : </strong>
 	<?php
 	switch($yellowcube_order->yc_response){
 	    case 0: echo __('Error', 'wooyellowcube'); break;
@@ -35,7 +35,7 @@ $yellowcube_order = $wpdb->get_row('SELECT * FROM wooyellowcube_orders WHERE id_
 
 
     <br />
-    <strong><?=__('Message', 'wooyellowcube')?> :</strong> <em><?=$yellowcube_order->yc_status_text?></em>
+    <strong><?php _e('Message', 'wooyellowcube'); ?> :</strong> <em><?php echo $yellowcube_order->yc_status_text; ?></em>
     <br />
 
 	<?php
@@ -65,11 +65,11 @@ $yellowcube_order = $wpdb->get_row('SELECT * FROM wooyellowcube_orders WHERE id_
 
     <?php if($yellowcube_order->yc_response == 2): ?>
 
-		<strong><?=__('Track & trace', 'wooyellowcube')?> :</strong>
+		<strong><?php _e('Track & trace', 'wooyellowcube'); ?> :</strong>
 	    <?php if(empty(trim($yellowcube_order->yc_shipping))): ?>
-	    <?=__('The track & trace is not ready yet, please come back later', 'wooyellowcube')?>
+	    <?php _e('The track & trace is not ready yet, please come back later', 'wooyellowcube'); ?>
 	    <?php else: ?>
-	    <a href="http://www.post.ch/swisspost-tracking?p_language=en&formattedParcelCodes=<?=$yellowcube_order->yc_shipping?>" target="_blank"><?=$yellowcube_order->yc_shipping?></a>
+	    <a href="http://www.post.ch/swisspost-tracking?p_language=en&formattedParcelCodes=<?php echo $yellowcube_order->yc_shipping?>" target="_blank"><?php echo $yellowcube_order->yc_shipping?></a>
 	    <?php endif; ?>
 
     <?php endif; ?>
@@ -79,9 +79,9 @@ $yellowcube_order = $wpdb->get_row('SELECT * FROM wooyellowcube_orders WHERE id_
   <?php if($yellowcube_order->yc_response != 2): ?>
   <!-- Order status is not 100 -->
   <div>
-    <h3><?=__('Try again to send this order to YellowCube', 'wooyellowcube')?></h3>
-    <p><?=__('Please save your order informations before to send to YellowCube.', 'wooyellowcube')?></p>
-    <p><a href="#" onclick="return false;" class="button" id="wooyellowcube-order-again"><?=__('Send order to YellowCube', 'wooyellowcube')?></a></p>
+    <h3><?php _e('Try again to send this order to YellowCube', 'wooyellowcube'); ?></h3>
+    <p><?php _e('Please save your order informations before to send to YellowCube.', 'wooyellowcube'); ?></p>
+    <p><a href="#" onclick="return false;" class="button" id="wooyellowcube-order-again"><?php _e('Send order to YellowCube', 'wooyellowcube'); ?></a></p>
   </div>
   <?php endif; ?>
 <?php endif; ?>
@@ -89,8 +89,8 @@ $yellowcube_order = $wpdb->get_row('SELECT * FROM wooyellowcube_orders WHERE id_
 <?php if(!$yellowcube_order): ?>
 <!-- Order has not been sent -->
 <div>
-  <h3><?=__('Send this order to Yellowcube', 'wooyellowcube')?></h3>
-  <p><?=__('Please save your order informations before to send to YellowCube.')?></p>
-  <p><a href="#" onclick="return false;" class="button" id="wooyellowcube-order-send"><?=__('Send order to YellowCube', 'wooyellowcube')?></a></p>
+  <h3><?php _e('Send this order to Yellowcube', 'wooyellowcube'); ?></h3>
+  <p><?php _e('Please save your order informations before to send to YellowCube.');?></p>
+  <p><a href="#" onclick="return false;" class="button" id="wooyellowcube-order-send"><?php _e('Send order to YellowCube', 'wooyellowcube');?></a></p>
 </div>
 <?php endif; ?>
