@@ -62,15 +62,16 @@ $yellowcube_order = $wpdb->get_row('SELECT * FROM wooyellowcube_orders WHERE id_
 		echo '</table><br />';
 	}
 	?>
-
     <?php if($yellowcube_order->yc_response == 2): ?>
 
-		<strong><?php _e('Track & trace', 'wooyellowcube'); ?> :</strong>
-	    <?php if(empty(trim($yellowcube_order->yc_shipping))): ?>
-	    <?php _e('The track & trace is not ready yet, please come back later', 'wooyellowcube'); ?>
-	    <?php else: ?>
-	    <a href="http://www.post.ch/swisspost-tracking?p_language=en&formattedParcelCodes=<?php echo $yellowcube_order->yc_shipping?>" target="_blank"><?php echo $yellowcube_order->yc_shipping?></a>
-	    <?php endif; ?>
+	    <?php $yc_shipping = rtrim($yellowcube_order->yc_shipping); ?>
+      <strong><?php _e('Track & trace', 'wooyellowcube'); ?> :</strong>
+
+      <?php if(empty($yc_shipping)){ ?>
+        <?php _e('The track & trace is not ready yet, please come back later', 'wooyellowcube'); ?>
+      <?php }else{ ?>
+        <a href="http://www.post.ch/swisspost-tracking?p_language=en&formattedParcelCodes=<?php echo $yellowcube_order->yc_shipping; ?>" target="_blank"><?php echo $yellowcube_order->yc_shipping; ?></a>
+      <?php } ?>
 
     <?php endif; ?>
 
