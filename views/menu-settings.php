@@ -43,7 +43,7 @@
     <select name="yellowcubeSOAPUrl" id="yellowcubeSOAPUrl">
       <option value="1" <?=(get_option('wooyellowcube_yellowcubeSOAPUrl') == 1) ? 'selected="selected"' : '' ?>>https://service-test.swisspost.ch/apache/yellowcube-test/?wsdl</option>
       <option value="2" <?=(get_option('wooyellowcube_yellowcubeSOAPUrl') == 2) ? 'selected="selected"' : '' ?>>https://service-test.swisspost.ch/apache/yellowcube-int/?wsdl</option>
-      <option value="3" <?=(get_option('wooyellowcube_yellowcubeSOAPUrl') == 3) ? 'selected="selected"' : '' ?>>https://service.swisspost.ch/apache/yellowcube/</option>
+      <option value="3" <?=(get_option('wooyellowcube_yellowcubeSOAPUrl') == 3) ? 'selected="selected"' : '' ?>>https://service.swisspost.ch/apache/yellowcube/?wsdl</option>
     </select>
   </p>
 
