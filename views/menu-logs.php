@@ -6,8 +6,11 @@
 
 <script type="text/javascript">
 	jQuery(document).ready(function(){
-		jQuery.fn.dataTable.moment('dd/mm/YY HH:ii');
-		jQuery('.datatable').DataTable();
+		jQuery.fn.dataTable.moment('dd/mm/YY H:i');
+		jQuery('.datatable').DataTable({
+			'order': [[0, 'desc']],
+			'displayLength': 15
+		});
 	});
 </script>
 
@@ -42,12 +45,22 @@ if(count($yellowcube_activities) == 0): ?>
         <td><?php echo date('Y/m/d H:i', $activity->created_at); ?></td>
         <td><?php echo $activity->reference; ?></td>
         <td><?php echo $activity->type; ?></td>
-        <td>#<?php echo $activity->object; ?></td>
         <td>
-          <?php switch($activity->response){
-            case 0: echo '<img src="'.plugin_dir_url('').'wooyellowcube/assets/images/yc-error.png" alt="'.__('Error', 'wooyellowcube').'" />'; break;
-            case 1: echo '<img src="'.plugin_dir_url('').'wooyellowcube/assets/images/yc-success.png" alt="'.__('Success', 'wooyellowcube').'" />'; break;
-          } ?>
+					<?php if(strpos($activity->type, 'ART') !== false): ?>
+						<?php
+						$wc_product = new WC_Product((int)$activity->object);
+
+						if($wc_product){
+							echo $wc_product->get_sku();
+						}else{
+							echo $activity->object;
+						}
+						?>
+					<?php else: ?>
+						#<?php echo $activity->object; ?>
+					<?php endif; ?>
+				</td>
+        <td>
           <?php echo $activity->message; ?>
         </td>
       </tr>

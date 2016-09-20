@@ -162,6 +162,8 @@ jQuery(document).ready(function($){
 
   $('.wooyellowcube-product-variation-send').on('click', function(){
 
+
+
     // Ajax call
     $.ajax({
 			url: wooyellowcube_ajax,
@@ -178,7 +180,6 @@ jQuery(document).ready(function($){
 				console.log(errorThrown);
 			}
 		});
-
   });
 
   /**

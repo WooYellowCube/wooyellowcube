@@ -101,24 +101,58 @@ if(count($variations)){
   <tbody>
 <?php
   foreach($variations as $variation){
+
+
     $variation_id = $variation['variation_id'];
 
     // Get information from YellowCube
     $yellowcube_variation = $wpdb->get_row('SELECT * FROM wooyellowcube_products WHERE id_product=\''.$variation_id.'\'');
+
+    // Check that the SKU is not similar to the parent SKU - disable the button in this case
+    $button_disable = false;
+    $parent_product = new WC_Product((int)$post->ID);
+
+    if($parent_product->get_sku() == $variation['sku']){
+      $button_disable = true;
+    }elseif($variation['sku'] == ''){
+      $button_disable = true;
+    }
+
+
+    /*
+    echo '<pre>'.print_r(var_dump($wc_variation->managing_stock()), true).'</pre>';
+
+    // stock manage is false
+    if(!$wc_variation->managing_stock()){
+      $button_disable = true;
+
+    // stock manage is true
+    }else{
+      $button_disable = false;
+
+      if($wc_variation->managing_stock() == 'parent'){
+        if(!$parent_product->managing_stock()){
+          echo 'case4';
+          $button_disable = true;
+        }
+      }
+
+    }
+    */
+
   ?>
   <tr>
     <td><?php echo $variation['sku']?></td>
     <td>
       <?php if($yellowcube_variation): ?>
-
-        <a href="#" onclick="return false;" class="button wooyellowcube-product-variation-update"><?php _e('Update', 'wooyellowcube'); ?></a>
+        <button onclick="return false;" class="button <?php if(!$button_disable): ?>wooyellowcube-product-variation-update<?php endif; ?>" <?php if($button_disable) echo 'disabled="disabled"'; ?>><?php _e('Update', 'wooyellowcube'); ?></button>
         <input type="hidden" class="wooyellowcube-product-variation-id" value="<?php echo $variation_id?>" />
 
-        <a href="#" onclick="return false;" class="button wooyellowcube-product-variation-desactivate"><?php _e('Desactivate', 'wooyellowcube');?></a>
+        <a href="#" onclick="return false;" class="button <?php if(!$button_disable): ?>wooyellowcube-product-variation-desactivate<?php endif; ?>" <?php if($button_disable) echo 'disabled="disabled"'; ?>><?php _e('Desactivate', 'wooyellowcube');?></a>
         <input type="hidden" class="wooyellowcube-product-variation-id" value="<?php echo $variation_id?>" />
       <?php else: ?>
-        <a href="#" onclick="return false;" class="button wooyellowcube-product-variation-send"><?php _e('Insert', 'wooyellowcube'); ?></a>
-        <input type="hidden" class="wooyellowcube-product-variation-id" value="<?php echo $variation_id?>" />
+        <a href="#" onclick="return false;" class="button <?php if(!$button_disable): ?>wooyellowcube-product-variation-send<?php endif; ?>" <?php if($button_disable) echo 'disabled="disabled"'; ?>><?php _e('Insert', 'wooyellowcube'); ?></a>
+        <input type="hidden" class="wooyellowcube-product-variation-id" value="<?php echo $variation_id?>"  />
       <?php endif; ?>
     </td>
     <td>
