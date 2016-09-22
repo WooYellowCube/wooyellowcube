@@ -3,7 +3,7 @@
 * Plugin Name: WooYellowCube
 * Plugin URI: http://www.wooyellowcube.com
 * Description: WooCommerce synchronization with YellowCube
-* Version: 2.3V2
+* Version: 2.3V3
 */
 
 // YellowCube API namespaces
