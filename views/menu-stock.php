@@ -5,7 +5,7 @@ global $wpdb, $wooyellowcube, $status;
 /**
 * Count total entries from wooyellowcube_stock
 */
-$total_entries = $wpdb->get_row('SELECT count(id) AS count_entries GROUP BY FROM wooyellowcube_stock GROUP BY yellowcube_articleno');
+$total_entries = $wpdb->get_row('SELECT COUNT(DISTINCT yellowcube_articleno) AS count_entries FROM wooyellowcube_stock');
 
 /**
 * Pagination
