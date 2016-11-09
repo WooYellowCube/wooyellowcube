@@ -131,17 +131,12 @@ class WooYellowCube
         // Loop each orders
         foreach($orders as $order){
 
-
-
           $order_id = $order->id_order;
           $order_object = new WC_Order((int)$order_id);
           $order_number = $order_object->get_order_number();
           $order_final = (trim($order_number) == '') ? $order_id : $order_number;
 
           $replies = $this->yellowcube->getYCCustomerOrderTestReply($order_object->get_order_number());
-
-
-
 
           foreach($replies as $reply){
 
@@ -159,12 +154,11 @@ class WooYellowCube
               )
             );
 
-            $order_object->update_status('completed', __('Your order has been shipped', 'wooyellowcube'), true);
-            $this->log_create(1, 'WAR-SHIPMENT DELIVERED', $order_final, $order_final, $track);
+            $this->log_create(1, 'WAR-SHIPMENT DELIVERED', $order_final, $order_final, 'Track & Trace received for order '.$order_id.' : '.$track);
+            $order_object->update_status('completed', __('Your order has been shipped', 'wooyellowcube'), false);
 
           }
         }
-
       }
     }
   }
@@ -1291,7 +1285,6 @@ class WooYellowCube
     return (get_option('wooyellowcube_email_content') != '') ? get_option('wooyellowcube_email_content') : self::$email_content;
   }
 
-
 }
 
 if(!function_exists('wp_get_current_user')) {
@@ -1315,5 +1308,17 @@ if(!function_exists('is_user_logged_in')):
 
 endif;
 
-$wooyellowcube = new WooYellowCube();
+/**
+ * Plugin initialization from init action
+ *
+ * @since 2.3.4
+ */
+ 
+function wooyellowcube_init(){
+
+  // instanciate WooYellowCube class
+  $wooyellowcube = new WooYellowCube();
+}
+
+add_action('init', 'wooyellowcube_init');
 ?>
