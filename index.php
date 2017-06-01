@@ -220,7 +220,7 @@ class WooYellowCube
   /**
   * Set the Track & Trace informations in the reply email
   */
-  public function email_completed($order, $sent_to_admin) {
+  public function email_completed($order) {
     global $wpdb;
 
     $order_id = $order->id;
