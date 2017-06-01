@@ -3,8 +3,36 @@
 * Plugin Name: WooYellowCube
 * Plugin URI: http://www.wooyellowcube.com
 * Description: WooCommerce synchronization with YellowCube
-* Version: 2.4.1 (WooCommerce 3.0 compatibility)
+* Version: 2.4.2 (WooCommerce 3.0 compatibility)
 */
+
+// YellowCube API namespaces
+use YellowCube\ART\Article;
+use YellowCube\ART\ChangeFlag;
+use YellowCube\ART\UnitsOfMeasure\ISO;
+use YellowCube\ART\UnitsOfMeasure\EANType;
+use YellowCube\WAB\AdditionalService\AdditionalShippingServices;
+use YellowCube\WAB\AdditionalService\BasicShippingServices;
+use YellowCube\WAB\AdditionalService\CODAccountNo;
+use YellowCube\WAB\AdditionalService\CODAmount;
+use YellowCube\WAB\AdditionalService\CODRefNo;
+use YellowCube\WAB\AdditionalService\DeliveryDate;
+use YellowCube\WAB\AdditionalService\DeliveryInstructions;
+use YellowCube\WAB\AdditionalService\DeliveryLocation;
+use YellowCube\WAB\AdditionalService\DeliveryPeriodeCode;
+use YellowCube\WAB\AdditionalService\DeliveryTimeFrom;
+use YellowCube\WAB\AdditionalService\DeliveryTimeJIT;
+use YellowCube\WAB\AdditionalService\DeliveryTimeTo;
+use YellowCube\WAB\AdditionalService\FloorNo;
+use YellowCube\WAB\AdditionalService\FrightShippingFlag;
+use YellowCube\WAB\AdditionalService\NotificationServiceCode;
+use YellowCube\WAB\AdditionalService\NotificationType;
+use YellowCube\WAB\Order;
+use YellowCube\WAB\OrderHeader;
+use YellowCube\WAB\Partner;
+use YellowCube\WAB\Doc;
+use YellowCube\Config;
+use YellowCube\WAB\Position;
 
 class WooYellowCube
 {
@@ -947,14 +975,8 @@ class WooYellowCube
                 ->setArticleNo($product->get_sku())
                 ->setPlant(get_option('wooyellowcube_plant'))
                 ->setQuantity($orderItem->get_quantity())
+                ->setQuantityISO('PCE')
                 ->setShortDescription(substr($product->get_name(), 0, 39));
-
-              // packages
-              if(get_field('product_is_package', $itemIdentifier)){
-                $yellowcubePosition->setQuantityISO('PK');
-              }else{
-                $yellowcubePosition->setQuantityISO(ISO::PCE);
-              }
 
               // add the position to the order
               $yellowcubeOrder->addOrderPosition($yellowcubePosition);
