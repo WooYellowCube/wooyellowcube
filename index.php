@@ -968,27 +968,31 @@ class WooYellowCube
             $product = wc_get_product($itemIdentifier);
 
             if($product->get_sku() != ''){
-              // create a position in YellowCube
-              $yellowcubePosition = new Position();
-              $yellowcubePosition
-                ->setPosNo($orderItemsCount)
-                ->setArticleNo($product->get_sku())
-                ->setPlant(get_option('wooyellowcube_plant'))
-                ->setQuantity($orderItem->get_quantity())
-                ->setQuantityISO('PCE')
-                ->setShortDescription(substr($product->get_name(), 0, 39));
 
-              // add the position to the order
-              $yellowcubeOrder->addOrderPosition($yellowcubePosition);
+                // check if the product is in YellowCube
+                $productART = $wpdb->get_var('SELECT COUNT(id) FROM wooyellowcube_products WHERE id_product="'.$itemIdentifier.'"');
+
+                if($productART > 0){
+                                    
+                  // create a position in YellowCube
+                  $yellowcubePosition = new Position();
+                  $yellowcubePosition
+                    ->setPosNo($orderItemsCount)
+                    ->setArticleNo($product->get_sku())
+                    ->setPlant(get_option('wooyellowcube_plant'))
+                    ->setQuantity($orderItem->get_quantity())
+                    ->setQuantityISO('PCE')
+                    ->setShortDescription(substr($product->get_name(), 0, 39));
+
+                  // add the position to the order
+                  $yellowcubeOrder->addOrderPosition($yellowcubePosition);
+                }
             }
 
 
           }
 
         }
-
-        // the order has never been sent successfully
-        //if($this->alreadySuccessYellowCube($order_id)){
 
         try{
           $yellowcubeWABRequest = $this->yellowcube->createYCCustomerOrder($yellowcubeOrder);
