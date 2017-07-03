@@ -95,12 +95,12 @@ $stocks = $wpdb->get_results('SELECT * FROM wooyellowcube_stock GROUP BY yellowc
 	$url_page = 'admin.php?page=wooyellowcube-stock';
 
 	if($pagination_current_page == 1){
-		echo '<a href="'.$url_page.'&paginate=2" class="button">'.__('Next entries', 'wooyellowucbe').' ></a>';
+		echo '<p><a href="'.$url_page.'&paginate=2" class="button">'.__('Next entries', 'wooyellowucbe').' ></a></p>';
 	}elseif($pagination_current_page == $pagination_total_pages){
-		echo '<a href="'.$url_page.'&paginate='.($pagination_current_page - 1).'" class="button">< '.__('Previous entries', 'wooyellowcube').'</a>';
+		echo '<p><a href="'.$url_page.'&paginate='.($pagination_current_page - 1).'" class="button">< '.__('Previous entries', 'wooyellowcube').'</a></p>';
 	}else{
-		echo '<a href="'.$url_page.'&paginate='.($pagination_current_page - 1).'" class="button">< '.__('Previous entries', 'wooyellowcube').'</a>';
-		echo '<a href="'.$url_page.'&paginate='.($pagination_current_page + 1).'" class="button">'.__('Next entries', 'wooyellowcube').' ></a>';
+		echo '<p><a href="'.$url_page.'&paginate='.($pagination_current_page - 1).'" class="button">< '.__('Previous entries', 'wooyellowcube').'</a></p>';
+		echo '<p><a href="'.$url_page.'&paginate='.($pagination_current_page + 1).'" class="button">'.__('Next entries', 'wooyellowcube').' ></a></p>';
 	}
 
 

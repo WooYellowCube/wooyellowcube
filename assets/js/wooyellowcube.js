@@ -162,8 +162,6 @@ jQuery(document).ready(function($){
 
   $('.wooyellowcube-product-variation-send').on('click', function(){
 
-
-
     // Ajax call
     $.ajax({
 			url: wooyellowcube_ajax,
@@ -171,7 +169,8 @@ jQuery(document).ready(function($){
 			data: {
 				action: 'product_send',
 				post_id: $(this).next('.wooyellowcube-product-variation-id').val(),
-				lotmanagement: jQuery('#lotmanagement').val()
+				lotmanagement: jQuery('#lotmanagement').val(),
+                variation: true
 			},
 			success:function(data) {
         location.reload();
@@ -194,7 +193,8 @@ jQuery(document).ready(function($){
 			data: {
 				action: 'product_update',
 				post_id: jQuery(this).next('.wooyellowcube-product-variation-id').val(),
-				lotmanagement: jQuery('#lotmanagement').val()
+				lotmanagement: jQuery('#lotmanagement').val(),
+                variation: true
 			},
 			success:function(data) {
         location.reload();
@@ -217,7 +217,8 @@ jQuery(document).ready(function($){
       type: 'POST',
       data: {
         action: 'product_remove',
-        post_id: $(this).next('.wooyellowcube-product-variation-id').val()
+        post_id: $(this).next('.wooyellowcube-product-variation-id').val(),
+        variation: true
       },
       success:function(data) {
         location.reload();

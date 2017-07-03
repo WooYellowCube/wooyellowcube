@@ -15,7 +15,7 @@
 </script>
 
 <h1><?php _e('WooYellowCube Activity logs', 'wooyellowcube'); ?></h1>
-<p><?php _e('If you have any question about the error displayed, please contact us on our website <a href="http://www.wooyellowcube.com" title="WooYellowCube" target="_blank">www.wooyellowcube.com</a>', 'wooyellowcube'); ?></p>
+<p><?php _e('If you have any question about error displayed, please contact YellowCube to get more informations (<a href="http://yellowcube.ch">www.yellowcube.ch</a> or by phone <strong>+41 58 386 48 08</strong>)', 'wooyellowcube'); ?></p>
 
 <hr />
 

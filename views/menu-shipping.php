@@ -1,51 +1,160 @@
-<h1><?php _e('Shipping management', 'wooyellowcube'); ?></h1>
 <?php
 global $woocommerce, $wpdb;
 
 $shipping_methods = $woocommerce->shipping->load_shipping_methods();
-$shipping_yellowcube = unserialize(get_option('wooyellowcube_shipping'));
-$additional_yellowcube = unserialize(get_option('wooyellowcube_shipping_additional'));
+$yellowcubeShippingMethods = unserialize(get_option('wooyellowcube_shipping_methods'));
 
+if(isset($_POST['shippingUpdate'])){
+    $shippingMethodID = $_POST['method_instance'];
+    $shippingMethodStatus = $_POST['shippingStatus'];
+    $shippingMethodBasic = $_POST['shippingBasic'];
+    $shippingMethodAdditional = $_POST['shippingAdditional'];
+
+    // shipping informations are empty
+    if(!is_array($yellowcubeShippingMethods)){
+        $yellowcubeShippingMethods = array();
+    }
+
+    // check if an entry is already existing for this shipping method
+    $yellowcubeShippingMethods[$shippingMethodID] = array();
+    $yellowcubeShippingMethods[$shippingMethodID]['status'] = $shippingMethodStatus;
+    $yellowcubeShippingMethods[$shippingMethodID]['basic'] = $shippingMethodBasic;
+    $yellowcubeShippingMethods[$shippingMethodID]['additional'] = $shippingMethodAdditional;
+    update_option('wooyellowcube_shipping_methods', serialize($yellowcubeShippingMethods));
+}
 ?>
-<h2><?php _e('Allowed shipping methods', 'wooyellowcube'); ?></h2>
-<p><?php _e('Only one parameter by Service can be used', 'wooyellowcube'); ?></p>
-<p><strong>BasicShippingServices :</strong><br /><em>ECO - PRI - PICKUP</em></p>
 
-<p><strong>AdditionalShippingService :</strong><br /><em>SI - SI:AZS - SA - APOST - INTPRI;GR - INTPRI;MX - INTECO;GR</em></p>
+<h1><?php _e('Shipping management', 'wooyellowcube'); ?></h1>
+<h2>Zones shipping</h2>
+<p>Attribute YellowCube shipping methods to zone shipping methods.</p>
 
-<h2>Shipping rules</h2>
-<form action="" method="post">
+<?php
+$shippingZones = WC_Shipping_Zones::get_zones();
 
-  <!-- Shipping methods -->
-  <table class="wp-list-table widefat fixed striped pages">
+if(is_array($shippingZones)){
+
+    if(count($shippingZones) == 0){
+        echo '<p>There is no shipping zone configured on your WooCommerce installation</p>';
+    }else{
+
+        foreach($shippingZones as $zone){
+
+            echo '<h3>' . $zone['zone_name'] . '</h3>';
+            $zoneShippingMethods = $zone['shipping_methods'];
+
+            if(count($zoneShippingMethods) > 0): ?>
+                <table class="wp-list-table widefat striped pages">
+                    <thead>
+                        <tr>
+                            <th><strong>Name</strong></th>
+                            <th><strong>Status</strong></th>
+                            <th><strong>BasicShippingServices</strong></th>
+                            <th><strong>AdditionalShippingServices</strong></th>
+                            <th><strong>Action</strong></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <?php foreach($zoneShippingMethods as $method): ?>
+                        <form action="" method="post">
+                            <tr>
+                                <td  width="400"><?=$method->title?></td>
+                                <td>
+                                    <select name="shippingStatus" id="shippingStatus" style="width: 100%;">
+                                        <option value="0" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['status'] == 0) echo 'selected="selected"'; ?>>Desactivated</option>
+                                        <option value="1" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['status'] == 1) echo 'selected="selected"'; ?>>Activated</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="shippingBasic" id="shippingBasic" style="width: 100%;">
+                                        <option value="ECO" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['basic'] == 'ECO') echo 'selected="selected"'; ?>>ECO</option>
+                                        <option value="PRI" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['basic'] == 'PRI') echo 'selected="selected"'; ?>>PRI</option>
+                                        <option value="PICKUP" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['basic'] == 'PICKUP') echo 'selected="selected"'; ?>>PICKUP</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select name="shippingAdditional" id="shippingAdditional" style="width: 100%;">
+                                        <option value="NONE" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'NONE') echo 'selected="selected"'; ?>>None</option>
+                                        <option value="SI" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'SI') echo 'selected="selected"'; ?>>SI</option>
+                                        <option value="SI:AZS" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'SI:AZS') echo 'selected="selected"'; ?>>SI:AZS</option>
+                                        <option value="SA" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'SA') echo 'selected="selected"'; ?>>SA</option>
+                                        <option value="APOST" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'APOST') echo 'selected="selected"'; ?>>APOST</option>
+                                        <option value="INTPRI;GR" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'INTPRI;GR') echo 'selected="selected"'; ?>>INTPRI;GR</option>
+                                        <option value="INTPRI;MX" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'INTPRI;MX') echo 'selected="selected"'; ?>>INTPRI;MX</option>
+                                        <option value="INTECO;GR" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'INTECO;GR') echo 'selected="selected"'; ?>>INTECO;GR</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="hidden" name="method_instance" id="method_instance" value="<?=$method->instance_id?>" />
+                                    <input type="submit" id="shippingUpdate" name="shippingUpdate" value="Update" class="button-primary button-large" />
+                                </td>
+                            </tr>
+                        </form>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+$defaultZone = new WC_Shipping_Zone(0);
+$defaultZoneDatas = $defaultZone->get_data();
+
+echo '<h2>'.$defaultZoneDatas['zone_name'].'</h2>';
+?>
+<table class="wp-list-table widefat striped pages">
     <thead>
-      <tr>
-        <th><strong><?php _e('Shipping method', 'wooyellowcube'); ?></strong></th>
-        <th><strong><?php _e('Shipping method ID', 'wooyellowcube'); ?></strong></th>
-        <th><strong>BasicShippingServices</strong></th>
-        <th><strong>AdditionalShippingServices</strong></th>
-      </tr>
+        <tr>
+            <th><strong>Name</strong></th>
+            <th><strong>Status</strong></th>
+            <th><strong>BasicShippingServices</strong></th>
+            <th><strong>AdditionalShippingServices</strong></th>
+            <th><strong>Action</strong></th>
+        </tr>
     </thead>
     <tbody>
-      <?php foreach($shipping_methods as $method): ?>
-      <tr>
-        <input type="hidden" name="yellowcube_shipping_id[]" name="yellowcube_shipping_id[]" value="<?php echo $method->id?>" />
-        <td><strong><?php echo $method->title?></strong></td>
-        <td><?php echo $method->id?></td>
-        <?php $method_shipping = (isset($shipping_yellowcube[$method->id])) ? $shipping_yellowcube[$method->id] : 'ECO'; ?>
-        <td><input type="text" name="yellowcube_shipping[]" value="<?php echo $method_shipping; ?>" /></td>
-        <?php $method_additional = (isset($additional_yellowcube[$method->id])) ? $additional_yellowcube[$method->id] : ''; ?>
-        <td><input type="text" name="yellowcube_additionals[]" value="<?php echo $method_additional; ?>" /></td>
-      </tr>
-      <?php endforeach; ?>
+    <?php foreach($defaultZone->get_shipping_methods() as $method): ?>
+        <form action="" method="post">
+            <tr>
+                <td width="400"><?=$method->title?></td>
+                <td>
+                    <select name="shippingStatus" id="shippingStatus" style="width: 100%;">
+                        <option value="0" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['status'] == 0) echo 'selected="selected"'; ?>>Desactivated</option>
+                        <option value="1" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['status'] == 1) echo 'selected="selected"'; ?>>Activated</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="shippingBasic" id="shippingBasic" style="width: 100%;">
+                        <option value="ECO" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['basic'] == 'ECO') echo 'selected="selected"'; ?>>ECO</option>
+                        <option value="PRI" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['basic'] == 'PRI') echo 'selected="selected"'; ?>>PRI</option>
+                        <option value="PICKUP" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['basic'] == 'PICKUP') echo 'selected="selected"'; ?>>PICKUP</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="shippingAdditional" id="shippingAdditional" style="width: 100%;">
+                        <option value="NONE" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'NONE') echo 'selected="selected"'; ?>>None</option>
+                        <option value="SI" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'SI') echo 'selected="selected"'; ?>>SI</option>
+                        <option value="SI:AZS" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'SI:AZS') echo 'selected="selected"'; ?>>SI:AZS</option>
+                        <option value="SA" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'SA') echo 'selected="selected"'; ?>>SA</option>
+                        <option value="APOST" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'APOST') echo 'selected="selected"'; ?>>APOST</option>
+                        <option value="INTPRI;GR" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'INTPRI;GR') echo 'selected="selected"'; ?>>INTPRI;GR</option>
+                        <option value="INTPRI;MX" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'INTPRI;MX') echo 'selected="selected"'; ?>>INTPRI;MX</option>
+                        <option value="INTECO;GR" <?php if(isset($yellowcubeShippingMethods[$method->instance_id]) && $yellowcubeShippingMethods[$method->instance_id]['additional'] == 'INTECO;GR') echo 'selected="selected"'; ?>>INTECO;GR</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="hidden" name="method_instance" id="method_instance" value="<?=$method->instance_id?>" />
+                    <input type="submit" id="shippingUpdate" name="shippingUpdate" value="Update" class="button-primary button-large" />
+                </td>
+            </tr>
+        </form>
+    <?php endforeach; ?>
     </tbody>
-  </table>
-
-  <br />
-
-  <!-- Form validation -->
-  <p>
-    <input class="button-primary button-large wooyellowcube-right" type="submit" name="submit_shipping" id="submit_shipping" value="<?php _e('Save shipping informations', 'wooyellowcube'); ?>" style="margin-right: 40px;" />
-  </p>
-
-</form>
+</table>
